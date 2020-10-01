@@ -1,0 +1,31 @@
+
+@extends('components.layout')
+
+@section('content')
+    
+<section class="questions contenedor" id="contactar" style="justify-content: center;">
+
+    <h1>Actualizar Skills list</h1>
+
+    <form method="POST" action=" {{ route('skills-list.update', $skillsList) }} " class="form">
+        @csrf
+        @method('PATCH')
+        <label for="name" >
+            <p> name  <span> Campo no valido </span></p>
+            <input value="{{ $skillsList->name }}" id="name" name="name" type="text" placeholder="name">
+        </label>
+
+        <label for="icon" >
+            <p> icon  <span> Campo no valido </span></p>
+            <input value="{{ $skillsList->icon }}" id="icon" name="icon" type="text" placeholder="icon">
+        </label>
+
+        <button>
+            Actualizar
+        </button>
+
+    </form>
+
+
+</section>
+@endsection
