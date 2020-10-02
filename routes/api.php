@@ -30,7 +30,7 @@ Route::get('/article/{id}', [App\Http\Controllers\ArticleController::class, 'sho
 
 
 Route::get('/categories', [App\Http\Controllers\CategoryController::class, 'index'])->name('category');
-Route::get('/category/{id}', [App\Http\Controllers\CategoryController::class, 'index'])->name('category.show');
+Route::get('/category/{id}', [App\Http\Controllers\CategoryController::class, 'show'])->name('category.show');
 
 
 Route::get('/tags', [App\Http\Controllers\TagController::class, 'index'])->name('tag');
