@@ -38,40 +38,42 @@ class ArticleController extends Controller
 
         for ($i=0; $i < count($articles); $i++) { 
             unset($articles[$i]->content);
-
+            $cts = [];
             for ($a=0; $a < count($article_categories); $a++) { 
                 if (  $articles[$i]->id == $article_categories[$a]->article_id ) {
                     if ( !isset( $articles[$i]->article_categories ) ) {
-                        $articles[$i]->categories = [];
+                        
                         $cat = Category::findOrFail($article_categories[$a]->category_id);
                         unset($cat->created_at);
                         unset($cat->updated_at);
-                        array_push($articles[$i]->categories, $cat);
+                        array_push($cts, $cat);
                     }else{
                         $cat = Category::findOrFail($article_categories[$a]->category_id);
                         unset($cat->created_at);
                         unset($cat->updated_at);
-                        array_push($articles[$i]->categories, $cat);
+                        array_push($cts, $cat);
                     }
                 }
             }
+            $articles[$i]->categories = $cts;
 
+            $tgss = [];
             for ($a=0; $a < count($article_tags); $a++) { 
                 if (  $articles[$i]->id == $article_tags[$a]->article_id ) {
                     if ( !isset( $articles[$i]->article_tags ) ) {
-                        $articles[$i]->tags = [];
                         $ta = Tag::findOrFail($article_tags[$a]->tag_id);
                         unset($ta->created_at);
                         unset($ta->updated_at);
-                        array_push($articles[$i]->tags, $ta);
+                        array_push($tgss, $ta);
                     }else{
                         $ta = Tag::findOrFail($article_tags[$a]->tag_id);
                         unset($ta->created_at);
                         unset($ta->updated_at);
-                        array_push($articles[$i]->tags, $ta);
+                        array_push($tgss, $ta);
                     }
                 }
             }
+            $articles[$i]->tags = $tgss;
         }
 
         

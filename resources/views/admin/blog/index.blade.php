@@ -156,7 +156,7 @@
                 <tr>
                     <th scope="row"> {{ $article_category->id }} </th>
                     <td> {{ $article_category->article_id }} </td>
-                    <td> {{ $article_category->tag_id }} </td>
+                    <td> {{ $article_category->category_id }} </td>
                     <td>
                         <a href=" {{ route('article-category.destroy', $article_category->id) }} ">Eliminar</a>
                     </td>
