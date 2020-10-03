@@ -21,12 +21,12 @@ class ProjectController extends Controller
         $projects = false;
         
         if ( $limit == 'false' || $limit == false ) {
-            $projects = DB::table('projects')->get();
+            $projects = DB::table('projects')->orderBy('id', 'DESC')->get();
 
 
 
         }else{
-            $projects = DB::table('projects')->limit($limit)->get();
+            $projects = DB::table('projects')->limit($limit)->orderBy('id', 'DESC')->get();
         }
 
 
