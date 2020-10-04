@@ -22,6 +22,7 @@
                 <div class="card-body">
                     <h5 class="card-title"> {{ $message->affair }} </h5>
                     <p class="card-text"> {{ $message->message }} </p>
+                    <h5 class="card-title"> {{ $message->email }} </h5>
                 </div>
                 <div class="form" style="padding: 0;margin: 0;">
                     <button>

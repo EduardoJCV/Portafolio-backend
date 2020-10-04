@@ -13,7 +13,6 @@
 
 
     <table class="table table-dark table-striped">
-        <h1>SKILLS LISTS</h1>
         <thead>
           <tr>
             <th scope="col">ID</th>
